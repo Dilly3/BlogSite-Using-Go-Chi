@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <style>
+        #blogs {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            color: #055975;
+        }
+
+        #blogs td, #blogs th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #blogs tr:nth-child(even){background-color: #f2f2f2;}
+
+        #blogs tr:hover {background-color: #96ccdf81;}
+
+        #blogs th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #087aa0;
+            color: white;
+            width: 10%;
+        }
+        .bodi{
+            width: 48%;
+            font-size: 14px;
+            text-align: justify;
+        }
+        .head{
+            text-align: left;
+        }
+        /* #blogs tr td{
+            background-color: rgb(160, 155, 155);
+        } */
+        .links li{
+            text-decoration: none;
+            list-style: none;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        .links li a{
+            text-decoration: none;
+        }
+        button a{
+            list-style: none;
+            padding: 10px;
+            text-decoration: none;
+            color: #008CBA;
+            width: 30px;
+            font-size: 16px;
+        }
+        .delete > button{
+            width: 75px;
+        }
+        .delete{
+            font-size: 12px;
+        }
+        .tym{
+            font-size: 12px;
+        }
+        .btndiv{
+            display:flex ;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .addblogbtn{
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+
+        }
+        .addblogbtn a{
+            color: white;
+            text-decoration: none;
+
+        }
+    </style>
+
+
+`
+
+</head>
+<body>
+<h2 style="text-align: center; font-size: 50px; color: #04465c9d;" >Woto-Woto Blog</h2>
+<br>
+<h3 style="text-align: center; font-size: 35px; color: #3eb3da;">all the tori as we hear am 4 streeti</h3>
+<div class="btndiv">
+    <button class="addblogbtn" style="margin-bottom: 10px;"> <a href="/">talk ur own tori</a></button> 
+</div>
+
+
+<table id="blogs" class="display" style"margin-top:15px;"  >
+    <thead>
+    <!-- <th>ISBN</th> -->
+    <th class="head"> tori head </th>
+    <th class="bodi">tori body</th>
+    <th class="tym">time</th>
+    <th>edit / delete</th>
+
+
+
+    </thead>
+    <tbody>
+    {{ range .}}
+    <tr>
+        <!-- <td>{{.SerialN}}</td> -->
+        <td class="head">{{.Title}}</td>
+        <td class="bodi">{{.Body}}</td>
+        <td class="tym">{{.Date}}</td>
+        <td class="delete">
+            <button><a class="delete" href="/delete/{{ .SerialN }}">delete</a></button>
+            <button><a class="delete" href="/edit/{{.SerialN}}">  edit</a></button>
+        </td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+
+
+     
+    
+
+
+
+
+
+
+</body>
+</html>
