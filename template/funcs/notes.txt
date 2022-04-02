@@ -1,0 +1,21 @@
+http.Redirect(writer, req, "/blog", http.StatusPermanentRedirect)
+
+
+	id := chi.URLParam(req, "SerialN")
+	e := req.ParseForm()    *****// populate r.postForm with data from form fields
+
+	HandleErr(e)
+	title := req.PostForm.Get("title")
+	body := req.PostForm.Get("body")
+
+
+
+//***** PArsing template
+
+    parsedTemplate, err := template.ParseFiles(fmt.Sprintf(addr))
+
+	if err != nil {
+		Println(err)
+	}
+
+	parsedTemplate.Execute(writer, addr)
