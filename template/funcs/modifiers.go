@@ -16,14 +16,8 @@ func UpdateBlog(writer http.ResponseWriter, req *http.Request) {
 	title := req.PostForm.Get("title")
 	body := req.PostForm.Get("body")
 
-	for ind, blog := range dbs.Blogs {
-		if blog.SerialN == id {
-			dbs.Blogs[ind].Title = title
-			dbs.Blogs[ind].Body = body
-			break
-		}
-	}
-	// http.Redirect(writer, req, "/blog", http.StatusPermanentRedirect)
+	dbs.EditBlog(id, body, title)
+
 	RenderPage(writer, "./tmpl/basetemplate.html", dbs.Blogs)
 }
 
